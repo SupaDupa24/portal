@@ -1,49 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-	class Navigation extends React.Component {
-		constructor(props) {
-			super(props);
-			this.state = ("/" === true)
+const Navigation = () => { 
+	render ( 
+		<div>
 
-		render() { 
-		return (
-			<Router>
-		      <div>
-					<nav style={{display: 'flex', justtifyContent: 'flex=end'}}>
-						<ul>
-		            <li>
-		              <Link to="/">Home</Link>
-		            </li>
-		            <li>
-		              <Link to="/about">About</Link>
-		            </li>
-		            <li>
-		              <Link to="/contact">Contact</Link>
-		            </li>
-		            <li>
-		              <Link to="/pricing">Pricing</Link>
-		            </li>
-		          </ul>
-					</nav>
-
-					<Switch>
-		          <Route path="/about">
-		            <About />
-		          </Route>
-		          <Route path="/contact">
-		            <Contact />
-		          </Route>
-		           <Route path="/pricing">
-		            <Pricing />
-		          </Route>
-		          <Route path="/">
-		            <Home />
-		          </Route>
-		        </Switch>
-		      </div>
-		    </Router>
-			);
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<a class="navbar-brand" href="#">Home</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+  <ul class="navbar-nav">
+	<li class="nav-item active">
+	  <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+	</li>
+	<li class="nav-item">
+	  <a class="nav-link" href="#">Pricing</a>
+	</li>
+	<li class="nav-item">
+	  <a class="nav-link" href="#">Contact</a>
+	</li>
+  </ul>
+</div>
+</nav>
+</div>
+	)
 
 	};
 export default Navigation;

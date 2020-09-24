@@ -6,6 +6,8 @@ import Prices from './components/Prices/Prices';
 import Navigation from './components/Navigation/Navigation';
 import Scroll from './components/Scroll/Scroll';
 import Banner from './components/Banner/Banner';
+import Home from './components/Home/Home';
+
 import './App.css';
 
 const particlesOptions = {
@@ -21,33 +23,27 @@ const particlesOptions = {
 }
 
 
-const initialState = {
-  this.handleClick = this.handleClick.bind(this);
-  this.state = {
-    active: true, 
-    route: "/"
-  }
-}
-
 class App extends React.Component {
-  contstructor(props) {
-    super(props);
-    this.state = initialState
+  contstructor() {
+    super();
+    this.state = {
+        route: '/'
+  }};
     
-
+    onRouteChange = (route) => {
+      if (route === '/') {
+        return this.setState(initialState);
+      } else if (route === '/About') {
+        this.setState(this.state.About);
+      } else if (route === '/Contact') {
+        this.setState(this.state.Contact);
+      } else if (route === '/Pricing') {
+        this.setState(this.state.Pricing);
+      }
+        this.setState({route:route});
     }
-  }
-
-  this.handleClick() {
-    this.setState(state => ({
-      isToggleOn: !state.isToggleOn
-    }));
-  }
-
-
   
-  
-
+ 
 
   render() { 
     return (
@@ -57,17 +53,21 @@ class App extends React.Component {
           params={particlesOptions}
         />
         <Navigation 
-          onClick={this.handleClick}
+          onClick={this.onClick}
+          onRouteChange={this.onRouteChange}
          />
         <Scroll> 
+            <Banner />
             <Home />
             <About />
-            <Pricing />
+            <Prices />
             <Contact />
         </Scroll>
       </div>
       );
   }
+  
+
   
 
 

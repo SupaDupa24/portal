@@ -5,7 +5,6 @@ import Contact from './components/Contact/Contact';
 import Prices from './components/Prices/Prices';
 import Navigation from './components/Navigation/Navigation';
 import Scroll from './components/Scroll/Scroll';
-import Banner from './components/Banner/Banner';
 import Home from './components/Home/Home';
 
 import './App.css';
@@ -23,15 +22,16 @@ const particlesOptions = {
 }
 
 
-class App extends React.Component {
-  contstructor() {
-    super();
+class App extends Component {
+  contstructor(props) {
+    super(props);
     this.state = {
-        route: '/'
-  }};
+        route: '/Home'
+  }
+};
     
     onRouteChange = (route) => {
-      if (route === '/') {
+      if (route === '/Home') {
         return this.setState(initialState);
       } else if (route === '/About') {
         this.setState(this.state.About);
@@ -57,7 +57,6 @@ class App extends React.Component {
           onRouteChange={this.onRouteChange}
          />
         <Scroll> 
-            <Banner />
             <Home />
             <About />
             <Prices />

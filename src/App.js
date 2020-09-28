@@ -6,8 +6,9 @@ import Prices from './components/Prices/Prices';
 import Navigation from './components/Navigation/Navigation';
 import Scroll from './components/Scroll/Scroll';
 import Home from './components/Home/Home';
-
 import './App.css';
+
+
 
 const particlesOptions = {
   particles: {
@@ -22,9 +23,9 @@ const particlesOptions = {
 }
 
 
-class App extends Component {
-  contstructor(props) {
-    super(props);
+class App extends React {
+  contstructor() {
+    super();
     this.state = {
         route: '/Home'
   }
@@ -32,7 +33,7 @@ class App extends Component {
     
     onRouteChange = (route) => {
       if (route === '/Home') {
-        return this.setState(initialState);
+        return this.setState(this.state.Home);
       } else if (route === '/About') {
         this.setState(this.state.About);
       } else if (route === '/Contact') {
@@ -65,9 +66,7 @@ class App extends Component {
       </div>
       );
   }
-  
+}  
 
   
 
-
-export default App;
